@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Affiliate Warehouse — Corporate-Level Trade Pricing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Barlow+Condensed:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #080e1a;
+    --navy2: #0d1626;
+    --card: #111c2e;
+    --card2: #162035;
+    --border: rgba(255,255,255,0.07);
+    --gold: #e8a820;
+    --gold2: #f5c842;
+    --blue: #1a6fff;
+    --blue2: #4d94ff;
+    --text: #d4dde8;
+    --muted: #7a8fa8;
+    --white: #ffffff;
+    --green: #22c55e;
+    --radius: 12px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--navy);
+    color:var(--text);
+    font-family:'DM Sans',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(8,14,26,0.92);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+    padding:0 5%;
+  }
+  .nav-inner{
+    max-width:1200px;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    height:60px;
+  }
+  .logo{
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:1.4rem;font-weight:700;color:var(--white);
+    letter-spacing:.02em;
+    display:flex;align-items:center;gap:8px;
+  }
+  .logo-dot{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--gold);
+    display:inline-block;
+  }
+  .nav-links{display:flex;align-items:center;gap:28px}
+  .nav-links a{
+    color:var(--muted);font-size:.88rem;text-decoration:none;
+    transition:color .2s;
+  }
+  .nav-links a:hover{color:var(--white)}
+  .nav-cta{
+    background:var(--gold);color:#000;
+    font-weight:600;font-size:.85rem;
+    padding:8px 20px;border-radius:6px;
+    text-decoration:none;transition:background .2s;
+    white-space:nowrap;
+  }
+  .nav-cta:hover{background:var(--gold2)}
+
+  /* ─── HERO ─── */
+  .hero{
+    padding: 120px 5% 90px;
+    background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(26,111,255,0.12) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 40% at 80% 50%, rgba(232,168,32,0.06) 0%, transparent 60%),
+                var(--navy);
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:'';position:absolute;inset:0;
+    background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.015'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events:none;
+  }
+  .hero-badge{
+    display:inline-flex;align-items:center;gap:6px;
+    background:rgba(232,168,32,0.12);border:1px solid rgba(232,168,32,0.3);
+    color:var(--gold);font-size:.8rem;font-weight:600;
+    padding:5px 14px;border-radius:20px;
+    margin-bottom:28px;letter-spacing:.06em;text-transform:uppercase;
+  }
+  .hero h1{
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:clamp(2.8rem,6vw,4.8rem);
+    font-weight:800;line-height:1.05;
+    color:var(--white);
+    max-width:820px;margin:0 auto 20px;
+  }
+  .hero h1 em{color:var(--gold);font-style:normal;}
+  .hero-sub{
+    font-size:clamp(1rem,2vw,1.2rem);
+    color:var(--muted);max-width:580px;margin:0 auto 36px;
+    font-weight:400;
+  }
+  .hero-btns{
+    display:flex;flex-wrap:wrap;gap:12px;
+    justify-content:center;margin-bottom:48px;
+  }
+  .btn-primary{
+    background:var(--gold);color:#000;
+    font-weight:700;font-size:1rem;
+    padding:14px 32px;border-radius:8px;
+    text-decoration:none;transition:all .2s;
+    border:none;cursor:pointer;display:inline-block;
+  }
+  .btn-primary:hover{background:var(--gold2);transform:translateY(-1px)}
+  .btn-secondary{
+    background:rgba(255,255,255,0.07);color:var(--white);
+    font-weight:600;font-size:1rem;
+    padding:14px 32px;border-radius:8px;
+    border:1px solid var(--border);
+    text-decoration:none;transition:all .2s;
+    display:inline-block;cursor:pointer;
+  }
+  .btn-secondary:hover{background:rgba(255,255,255,0.12)}
+  .trust-strip{
+    display:flex;flex-wrap:wrap;gap:24px;justify-content:center;
+    font-size:.82rem;color:var(--muted);
+  }
+  .trust-strip span{display:flex;align-items:center;gap:6px}
+  .trust-strip .dot{
+    width:6px;height:6px;border-radius:50%;background:var(--green);
+    flex-shrink:0;
+  }
+
+  /* ─── SECTION SHARED ─── */
+  section{padding:80px 5%}
+  .container{max-width:1200px;margin:0 auto}
+  .section-label{
+    font-size:.75rem;font-weight:700;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--gold);
+    margin-bottom:12px;
+  }
+  .section-title{
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:clamp(1.8rem,4vw,3rem);
+    font-weight:800;color:var(--white);
+    line-height:1.1;margin-bottom:16px;
+  }
+  .section-sub{
+    color:var(--muted);max-width:560px;
+    font-size:1.05rem;margin-bottom:48px;
+  }
+
+  /* ─── SOCIAL PROOF BAR ─── */
+  .proof-bar{
+    background:var(--card);
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+    padding:40px 5%;
+  }
+  .proof-bar .container{
+    display:flex;flex-direction:column;align-items:center;gap:32px;
+  }
+  .proof-heading{
+    font-size:.85rem;color:var(--muted);text-align:center;
+    letter-spacing:.04em;
+  }
+  .stars{color:var(--gold);font-size:1.1rem;margin-bottom:4px;}
+  .reviews-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;width:100%;
+  }
+  .review-card{
+    background:var(--navy2);border:1px solid var(--border);
+    border-radius:var(--radius);padding:24px;
+  }
+  .review-stars{color:var(--gold);font-size:.9rem;margin-bottom:10px;}
+  .review-text{color:var(--text);font-size:.92rem;margin-bottom:16px;font-style:italic;}
+  .review-author{display:flex;align-items:center;gap:10px;}
+  .review-avatar{
+    width:36px;height:36px;border-radius:50%;
+    background:linear-gradient(135deg,var(--blue),var(--gold));
+    display:flex;align-items:center;justify-content:center;
+    font-weight:700;font-size:.85rem;color:#fff;
+    flex-shrink:0;
+  }
+  .review-name{font-size:.88rem;font-weight:600;color:var(--white);}
+  .review-role{font-size:.78rem;color:var(--muted);}
+
+  /* ─── HOW IT WORKS ─── */
+  .hiw-bg{background:var(--navy2);}
+  .steps-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:2px;background:var(--border);border-radius:var(--radius);overflow:hidden;
+  }
+  .step-card{
+    background:var(--card);
+    padding:32px 28px;
+    position:relative;
+  }
+  .step-num{
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:3rem;font-weight:800;
+    color:rgba(232,168,32,0.15);
+    line-height:1;margin-bottom:16px;
+  }
+  .step-icon{
+    font-size:1.6rem;margin-bottom:12px;display:block;
+  }
+  .step-card h3{
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:1.25rem;font-weight:700;color:var(--white);
+    margin-bottom:10px;
+  }
+  .step-card p{font-size:.9rem;color:var(--muted);line-height:1.55;}
+
+  /* ─── FEATURES 3-COL ─── */
+  .features-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+  }
+  .feature-card{
+    background:var(--card);border:1px solid var(--border);
+    border-radius:var(--radius);padding:32px;
+    transition:border-color .2s;
+  }
+  .feature-card:hover{border-color:rgba(232,168,32,0.3);}
+  .feature-icon{
+    width:48px;height:48px;border-radius:10px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.4rem;margin-bottom:20px;
+  }
+  .icon-gold{background:rgba(232,168,32,0.12);}
+  .icon-blue{background:rgba(26,111,255,0.12);}
+  .icon-green{background:rgba(34,197,94,0.12);}
+  .feature-card h3{
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:1.3rem;font-weight:700;color:var(--white);
+    margin-bottom:10px;
+  }
+  .feature-card p{font-size:.92rem;color:var(--muted);}
+
+  /* ─── FEE BOX ─── */
+  .fee-section{background:var(--navy2);}
+  .fee-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:24px;
+  }
+  .fee-card{
+    background:var(--card);border:1px solid var(--border);
+    border-radius:var(--radius);padding:36px;
+    text-align:center;
+  }
+  .fee-card.featured{
+    border-color:var(--gold);
+    background:linear-gradient(135deg,rgba(232,168,32,0.08),var(--card));
+    position:relative;
+  }
+  .fee-badge{
+    position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+    background:var(--gold);color:#000;
+    font-size:.72rem;font-weight:700;letter-spacing:.08em;
+    padding:4px 14px;border-radius:20px;text-transform:uppercase;
+  }
+  .fee-pct{
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:3.5rem;font-weight:800;color:var(--gold);
+    line-height:1;margin-bottom:8px;
+  }
+  .fee-label{font-size:.9rem;color:var(--muted);margin-bottom:16px;}
+  .fee-desc{font-size:.88rem;color:var(--text);}
+  .nolock-list{
+    list-style:none;display:flex;flex-direction:column;gap:12px;
+    margin-top:32px;
+  }
+  .nolock-list li{
+    display:flex;align-items:center;gap:12px;
+    font-size:.95rem;color:var(--text);
+  }
+  .check{
+    width:22px;height:22px;border-radius:50%;
+    background:rgba(34,197,94,0.15);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--green);font-size:.8rem;flex-shrink:0;
+  }
+
+  /* ─── COMPARISON ─── */
+  .compare-table{
+    width:100%;border-collapse:collapse;
+    border-radius:var(--radius);overflow:hidden;
+  }
+  .compare-table th{
+    background:var(--card2);
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:1rem;font-weight:700;color:var(--white);
+    padding:16px 20px;text-align:left;
+    border-bottom:1px solid var(--border);
+  }
+  .compare-table th:last-child{color:var(--gold);}
+  .compare-table td{
+    padding:14px 20px;
+    font-size:.92rem;color:var(--text);
+    border-bottom:1px solid var(--border);
+    background:var(--card);
+  }
+  .compare-table tr:last-child td{border-bottom:none;}
+  .tick{color:var(--green);font-weight:700;}
+  .neutral{color:var(--muted);}
+
+  /* ─── COMPLIANCE ─── */
+  .compliance-section{background:var(--navy2);}
+  .compliance-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;
+  }
+  .compliance-points{display:flex;flex-direction:column;gap:16px;margin-top:8px;}
+  .compliance-point{
+    display:flex;gap:14px;align-items:flex-start;
+  }
+  .compliance-icon{
+    width:36px;height:36px;border-radius:8px;
+    background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);
+    display:flex;align-items:center;justify-content:center;
+    font-size:1rem;flex-shrink:0;margin-top:2px;
+  }
+  .compliance-point h4{
+    font-weight:600;color:var(--white);font-size:.95rem;margin-bottom:4px;
+  }
+  .compliance-point p{font-size:.87rem;color:var(--muted);}
+  .wholesaler-box{
+    background:var(--card);border:1px solid rgba(34,197,94,0.25);
+    border-radius:var(--radius);padding:32px;
+  }
+  .wholesaler-box h3{
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:1.5rem;font-weight:700;color:var(--white);margin-bottom:16px;
+  }
+  .wholesaler-box p{font-size:.9rem;color:var(--muted);margin-bottom:16px;}
+  .wh-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+  .wh-list li{
+    display:flex;gap:10px;align-items:flex-start;
+    font-size:.88rem;color:var(--text);
+  }
+  .wh-list li::before{
+    content:'→';color:var(--gold);flex-shrink:0;font-weight:700;
+  }
+
+  /* ─── FAQ ─── */
+  .faq-grid{
+    display:flex;flex-direction:column;gap:12px;max-width:800px;
+  }
+  .faq-item{
+    background:var(--card);border:1px solid var(--border);
+    border-radius:var(--radius);overflow:hidden;
+  }
+  .faq-q{
+    padding:18px 24px;cursor:pointer;
+    display:flex;justify-content:space-between;align-items:center;
+    font-weight:600;color:var(--white);font-size:.95rem;
+    user-select:none;
+  }
+  .faq-q:hover{background:var(--card2);}
+  .faq-arrow{
+    font-size:1.2rem;color:var(--gold);
+    transition:transform .25s;flex-shrink:0;
+  }
+  .faq-a{
+    max-height:0;overflow:hidden;transition:max-height .3s ease;
+  }
+  .faq-a-inner{
+    padding:0 24px 18px;
+    font-size:.9rem;color:var(--muted);line-height:1.6;
+  }
+  .faq-item.open .faq-arrow{transform:rotate(45deg);}
+  .faq-item.open .faq-a{max-height:200px;}
+
+  /* ─── FORMS ─── */
+  .forms-section{background:var(--navy2);}
+  .forms-tabs{
+    display:flex;gap:4px;margin-bottom:32px;
+    background:var(--card);border:1px solid var(--border);
+    padding:4px;border-radius:10px;width:fit-content;
+  }
+  .form-tab{
+    padding:10px 24px;border-radius:7px;
+    cursor:pointer;font-size:.88rem;font-weight:600;
+    color:var(--muted);transition:all .2s;border:none;background:transparent;
+  }
+  .form-tab.active{background:var(--gold);color:#000;}
+  .form-panel{display:none;}
+  .form-panel.active{display:block;}
+  .form-wrap{
+    display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;
+  }
+  .form-info h2{
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:2rem;font-weight:800;color:var(--white);
+    margin-bottom:12px;
+  }
+  .form-info p{font-size:.95rem;color:var(--muted);margin-bottom:24px;}
+  .form-micro{
+    display:flex;flex-direction:column;gap:8px;margin-top:24px;
+  }
+  .form-micro span{
+    display:flex;align-items:center;gap:8px;
+    font-size:.85rem;color:var(--muted);
+  }
+  .form-micro .check-sm{
+    color:var(--green);font-size:.9rem;flex-shrink:0;
+  }
+  .form-box{
+    background:var(--card);border:1px solid var(--border);
+    border-radius:var(--radius);padding:32px;
+  }
+  .form-group{margin-bottom:18px;}
+  .form-group label{
+    display:block;font-size:.82rem;font-weight:600;
+    color:var(--muted);margin-bottom:6px;letter-spacing:.04em;text-transform:uppercase;
+  }
+  .form-group input,
+  .form-group textarea,
+  .form-group select{
+    width:100%;background:var(--navy);
+    border:1px solid var(--border);border-radius:8px;
+    color:var(--white);font-size:.95rem;font-family:inherit;
+    padding:12px 16px;outline:none;
+    transition:border-color .2s;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus{border-color:var(--gold);}
+  .form-group textarea{resize:vertical;min-height:90px;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .calendly-btn{
+    width:100%;background:transparent;
+    border:1px dashed rgba(232,168,32,0.4);
+    border-radius:8px;padding:14px;
+    color:var(--gold);font-size:.88rem;font-weight:600;
+    cursor:pointer;transition:all .2s;margin-bottom:16px;
+    font-family:inherit;
+  }
+  .calendly-btn:hover{background:rgba(232,168,32,0.07);border-color:var(--gold);}
+  .submit-btn{
+    width:100%;background:var(--gold);color:#000;
+    font-weight:700;font-size:1rem;
+    padding:14px;border-radius:8px;border:none;cursor:pointer;
+    font-family:inherit;transition:all .2s;
+  }
+  .submit-btn:hover{background:var(--gold2);}
+  .success-msg{
+    display:none;background:rgba(34,197,94,0.08);
+    border:1px solid rgba(34,197,94,0.3);
+    border-radius:8px;padding:20px;
+    color:var(--green);font-size:.95rem;text-align:center;
+    margin-top:12px;
+  }
+
+  /* ─── DISCLAIMER ─── */
+  .disclaimer-section{padding:40px 5%;}
+  .disclaimer-box{
+    max-width:900px;margin:0 auto;
+    background:var(--card);border:1px solid var(--border);
+    border-radius:var(--radius);padding:28px 32px;
+  }
+  .disclaimer-box h4{
+    font-size:.8rem;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:12px;
+  }
+  .disclaimer-box p{font-size:.8rem;color:var(--muted);line-height:1.7;}
+
+  /* ─── FOOTER ─── */
+  footer{
+    background:var(--navy2);border-top:1px solid var(--border);
+    padding:32px 5%;
+  }
+  .footer-inner{
+    max-width:1200px;margin:0 auto;
+    display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;
+    gap:16px;
+  }
+  .footer-links{display:flex;gap:20px;}
+  .footer-links a{font-size:.82rem;color:var(--muted);text-decoration:none;}
+  .footer-links a:hover{color:var(--white);}
+  .footer-copy{font-size:.8rem;color:var(--muted);}
+
+  /* ─── RESPONSIVE ─── */
+  @media(max-width:768px){
+    .nav-links{display:none;}
+    .compliance-grid{grid-template-columns:1fr;}
+    .form-wrap{grid-template-columns:1fr;}
+    .form-row{grid-template-columns:1fr;}
+    .forms-tabs{flex-direction:column;width:100%;}
+    .compare-table{font-size:.82rem;}
+    .compare-table th,.compare-table td{padding:10px 12px;}
+    section{padding:56px 5%;}
+    .hero{padding:96px 5% 64px;}
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp{
+    from{opacity:0;transform:translateY(24px);}
+    to{opacity:1;transform:translateY(0);}
+  }
+  .hero>*{animation:fadeUp .6s ease both;}
+  .hero .hero-badge{animation-delay:.1s;}
+  .hero h1{animation-delay:.2s;}
+  .hero .hero-sub{animation-delay:.3s;}
+  .hero .hero-btns{animation-delay:.4s;}
+  .hero .trust-strip{animation-delay:.5s;}
+
+  /* ─── PILL TAG ─── */
+  .pill{
+    display:inline-block;padding:3px 10px;border-radius:20px;
+    font-size:.75rem;font-weight:600;letter-spacing:.04em;
+  }
+  .pill-green{background:rgba(34,197,94,0.12);color:var(--green);}
+  .pill-gold{background:rgba(232,168,32,0.12);color:var(--gold);}
+  .pill-blue{background:rgba(26,111,255,0.12);color:var(--blue2);}
+
+  /* ─── SECTION DIVIDER ─── */
+  .divider{
+    height:1px;background:var(--border);
+    max-width:1200px;margin:0 auto;
+  }
+
+  /* Scroll animation helper */
+  .reveal{opacity:0;transform:translateY(20px);transition:all .5s ease;}
+  .revealed{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo"><span class="logo-dot"></span>Affiliate Warehouse</div>
+    <div class="nav-links">
+      <a href="#how-it-works">How It Works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Wholesalers</a>
+    </div>
+    <a href="#apply" class="nav-cta">Apply Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">⚡ Australian Trade Procurement Network</div>
+    <h1>We Help Our Preferred Contractors<br>Access <em>Better Pricing</em> —<br>Transparently</h1>
+    <p class="hero-sub">Collective buying power, price tracking, and corporate-level trade accounts — without lock-ins or obligations.</p>
+    <div class="hero-btns">
+      <a href="#apply" class="btn-primary">Apply to Become a Preferred Contractor</a>
+      <a href="#info" class="btn-secondary">Request a Call-Back</a>
+    </div>
+    <div class="trust-strip">
+      <span><span class="dot"></span>No lock-ins</span>
+      <span><span class="dot"></span>No discount = no charge</span>
+      <span><span class="dot"></span>Optional price-change alerts</span>
+      <span><span class="dot"></span>Wholesaler-safe model</span>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF BAR -->
+<div class="proof-bar">
+  <div class="container">
+    <div class="proof-heading">
+      <div class="stars">★★★★★</div>
+      Trusted by independent trade businesses across Australia
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I didn't have to change suppliers or learn a new system. Affiliate Warehouse just gave us the buying power of a massive operation on the exact same gear we normally use."</p>
+        <div class="review-author">
+          <div class="review-avatar">MT</div>
+          <div>
+            <div class="review-name">Marc T.</div>
+            <div class="review-role">Electrical Contractor, Brisbane QLD</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"The price tracking tool caught a 7% supplier increase on our most common cable. We compared it side-by-side with the corporate accounts and maintained our quoting margins effortlessly."</p>
+        <div class="review-author">
+          <div class="review-avatar">SL</div>
+          <div>
+            <div class="review-name">Sarah L.</div>
+            <div class="review-role">HVAC Business Owner, Melbourne VIC</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"The fee model is genuinely aligned — they only earn when we save. After 6 months it's become a standard part of our procurement process."</p>
+        <div class="review-author">
+          <div class="review-avatar">DJ</div>
+          <div>
+            <div class="review-name">Dean J.</div>
+            <div class="review-role">Solar Installer, Perth WA</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works" class="hiw-bg">
+  <div class="container">
+    <p class="section-label reveal">How It Works</p>
+    <h2 class="section-title reveal">Set up and start comparing prices in four simple steps<br>without ever bypassing a wholesaler.</h2>
+    <div class="steps-grid reveal">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <span class="step-icon">🤝</span>
+        <h3>Choose to Participate</h3>
+        <p>Independent preferred contractors opt in to our national network. There are no contracts and no minimum spend. Participation is entirely voluntary.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <span class="step-icon">📈</span>
+        <h3>Access the Volume</h3>
+        <p>By aggregating purchasing volume across our network, preferred contractors may access pricing structures typically reserved for larger operators — subject to supplier approval and terms.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <span class="step-icon">🛒</span>
+        <h3>Order as Normal</h3>
+        <p>You order through the same wholesaler systems you already use — TradeZone, Ideal Electrical, Voltex. No reselling, no rerouting. All purchases remain job-coded and fully traceable.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <span class="step-icon">📊</span>
+        <h3>Track & Compare</h3>
+        <p>Our system monitors pricing over time. Compare against your original trade accounts at any time. Optional email alerts notify you when prices move on repeat purchases.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section>
+  <div class="container">
+    <p class="section-label reveal">What You Get</p>
+    <h2 class="section-title reveal">Three tools that improve<br>every procurement decision</h2>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon icon-gold">💰</div>
+        <h3>Catch Price Hikes Before You Quote</h3>
+        <p>Our monitoring system tracks pricing on products you buy repeatedly. Receive optional email alerts when prices increase or decrease compared to your prior purchases — so your quotes stay accurate.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon icon-blue">⚖️</div>
+        <h3>Compare Prices Side-by-Side</h3>
+        <p>As a preferred contractor, you can run a simple side-by-side comparison between your existing trade accounts and Affiliate Warehouse pricing. Same products. Same suppliers. You choose what makes sense.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon icon-green">✅</div>
+        <h3>We Only Make Money When You Save</h3>
+        <p>Our fee is 1.1% of verified savings only. If no discount is achieved on a purchase, there is no charge. Fees are billed monthly based on confirmed savings — not on order volume or subscription.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING / FEES -->
+<section class="fee-section" id="pricing">
+  <div class="container">
+    <p class="section-label reveal">Fees & Incentives</p>
+    <h2 class="section-title reveal">Completely aligned incentives.<br>No savings — no fee. Full stop.</h2>
+    <p class="section-sub reveal">Our pricing model means we only profit when you do. There are no monthly subscriptions, no access fees, and no costs unless a verified discount is achieved.</p>
+    <div class="fee-grid reveal">
+      <div class="fee-card">
+        <div class="fee-pct" style="color:var(--muted);font-size:2rem;">$0</div>
+        <div class="fee-label">If no discount is achieved</div>
+        <div class="fee-desc">No charge. No subscription. No access fee. You simply use your existing supplier accounts as normal.</div>
+      </div>
+      <div class="fee-card featured">
+        <div class="fee-badge">Our Fee</div>
+        <div class="fee-pct">1.1%</div>
+        <div class="fee-label">of the verified discount achieved</div>
+        <div class="fee-desc">Billed monthly, only on confirmed savings. The remainder of the discount is retained by you — the contractor.</div>
+      </div>
+      <div class="fee-card">
+        <div style="margin-bottom:16px;font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:700;color:var(--white);">Zero Lock-Ins</div>
+        <ul class="nolock-list">
+          <li><span class="check">✓</span>No contracts or agreements</li>
+          <li><span class="check">✓</span>No minimum spend</li>
+          <li><span class="check">✓</span>No exclusivity requirements</li>
+          <li><span class="check">✓</span>Stop using at any time</li>
+          <li><span class="check">✓</span>Use alongside your existing accounts</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section>
+  <div class="container">
+    <p class="section-label reveal">Pricing Comparison</p>
+    <h2 class="section-title reveal">Same products. Same suppliers.<br>Group leverage — transparent comparison.</h2>
+    <p class="section-sub reveal">As a preferred contractor, you can always compare Affiliate Warehouse pricing against your standard trade account. There is no obligation to use our pricing if it isn't better.</p>
+    <div class="reveal" style="overflow-x:auto;">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Your Standard Trade Account</th>
+            <th>Affiliate Warehouse Access</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Same wholesaler suppliers</td>
+            <td class="tick">✓ Yes</td>
+            <td class="tick">✓ Yes (TradeZone, Ideal, Voltex)</td>
+          </tr>
+          <tr>
+            <td>Job-coded, traceable purchases</td>
+            <td class="tick">✓ Yes</td>
+            <td class="tick">✓ Yes</td>
+          </tr>
+          <tr>
+            <td>Access to corporate-tier pricing</td>
+            <td class="neutral">— Individual volume only</td>
+            <td class="tick">✓ Collective volume (subject to supplier terms)</td>
+          </tr>
+          <tr>
+            <td>Price movement tracking</td>
+            <td class="neutral">— Not available</td>
+            <td class="tick">✓ Included</td>
+          </tr>
+          <tr>
+            <td>Optional price-change alerts</td>
+            <td class="neutral">— Not available</td>
+            <td class="tick">✓ Included</td>
+          </tr>
+          <tr>
+            <td>Monthly fee</td>
+            <td class="neutral">— None</td>
+            <td class="tick">✓ Only 1.1% on verified savings</td>
+          </tr>
+          <tr>
+            <td>Contracts or lock-ins</td>
+            <td class="neutral">Varies by supplier</td>
+            <td class="tick">✓ None</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- COMPLIANCE / WHOLESALER-SAFE -->
+<section id="compliance" class="compliance-section">
+  <div class="container">
+    <div class="compliance-grid">
+      <div>
+        <p class="section-label reveal">Compliance & Ethics</p>
+        <h2 class="section-title reveal">Built for Compliance.<br><span style="color:var(--green);">Wholesaler-Safe.</span></h2>
+        <p class="section-sub reveal" style="margin-bottom:0;">Affiliate Warehouse is a procurement support and price-monitoring service. This model is built for transparency and efficiency — not disruption.</p>
+        <div class="compliance-points">
+          <div class="compliance-point reveal">
+            <div class="compliance-icon">🏛️</div>
+            <div>
+              <h4>Operates within existing wholesaler systems and terms</h4>
+              <p>No bypassing, no workarounds. All purchases use normal wholesaler backend access and traceability.</p>
+            </div>
+          </div>
+          <div class="compliance-point reveal">
+            <div class="compliance-icon">🔒</div>
+            <div>
+              <h4>Pricing set solely by wholesalers</h4>
+              <p>We never alter supplier terms. Pricing and availability are determined entirely by each wholesaler.</p>
+            </div>
+          </div>
+          <div class="compliance-point reveal">
+            <div class="compliance-icon">📋</div>
+            <div>
+              <h4>No resale of goods</h4>
+              <p>Affiliate Warehouse does not resell products. All purchases are made directly by contractors through wholesaler channels.</p>
+            </div>
+          </div>
+          <div class="compliance-point reveal">
+            <div class="compliance-icon">✔️</div>
+            <div>
+              <h4>Voluntary, non-exclusive participation</h4>
+              <p>Contractors and wholesalers participate at their own discretion. No exclusivity is required or implied.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="wholesaler-box reveal">
+        <span class="pill pill-green" style="margin-bottom:12px;display:inline-block;">For Wholesalers</span>
+        <h3>This Improves Your Volume — Not Your Risk</h3>
+        <p>If you're a wholesaler reviewing this page, here's what Affiliate Warehouse means for your business:</p>
+        <ul class="wh-list">
+          <li>Greater consolidated volume through your existing systems</li>
+          <li>More consistent and predictable purchasing patterns</li>
+          <li>All purchases remain job-coded and fully traceable</li>
+          <li>No changes to your pricing structure or supplier terms</li>
+          <li>Normal backend access and traceability maintained throughout</li>
+          <li>Improved efficiency for contractors narrows where buying occurs nationally</li>
+        </ul>
+        <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--border);">
+          <p style="font-size:.85rem;color:var(--muted);font-style:italic;">"This is collaboration and efficiency — not disruption."</p>
+        </div>
+        <a href="#contact" class="btn-primary" style="display:inline-block;margin-top:16px;font-size:.88rem;padding:11px 24px;">Wholesaler Expression of Interest →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLLECTIVE BUYING EXPLAINED -->
+<section>
+  <div class="container">
+    <p class="section-label reveal">Collective Buying Model</p>
+    <h2 class="section-title reveal">Independent contractors.<br>Shared purchasing power.</h2>
+    <p class="section-sub reveal">Affiliate Warehouse aggregates purchasing volume across independent preferred contractors nationally. By buying together — while each contractor retains their own account and traceability — the network can access pricing structures typically available only to larger operators.</p>
+    <div class="features-grid reveal">
+      <div class="feature-card">
+        <div class="feature-icon icon-gold">🇦🇺</div>
+        <h3>National Network</h3>
+        <p>Independent contractors across electrical, HVAC, solar and related trades choose to coordinate purchasing — without giving up their existing supplier relationships.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon icon-blue">📦</div>
+        <h3>Volume-Enabled Pricing</h3>
+        <p>Aggregated volume may enable access to pricing tiers typically available to large corporate operators. All subject to supplier approval and market conditions.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon icon-green">🔄</div>
+        <h3>Benefits Both Sides</h3>
+        <p>Improved volume and purchasing consistency benefits contractors and suppliers alike. Narrowing where we buy nationally allows for collaborative, transparent bulk purchasing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background:var(--navy2);">
+  <div class="container">
+    <p class="section-label reveal">FAQ</p>
+    <h2 class="section-title reveal">Frequently Asked Questions</h2>
+    <div class="faq-grid reveal">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What wholesaler accounts do I get access to?<span class="faq-arrow">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Preferred contractors gain access through TradeZone, Ideal Electrical, and Voltex accounts. These are the same supplier systems you may already use — the difference is access through Affiliate Warehouse's corporate-level accounts, which may unlock volume-based pricing structures.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How does Affiliate Warehouse make money?<span class="faq-arrow">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Affiliate Warehouse retains 1.1% of any verified discount achieved. If no discount is achieved on a purchase, there is no charge. Fees are billed monthly and only apply where savings have been verifiably confirmed.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Am I locked into an exclusive contract?<span class="faq-arrow">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">No. There are no contracts, no minimum spend requirements, and no exclusivity. You can stop using Affiliate Warehouse at any time. Participation is entirely voluntary.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How do I know my pricing is actually improving?<span class="faq-arrow">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">As a preferred contractor you can run a side-by-side comparison against your original trade accounts at any time. The system tracks pricing over time on repeat purchases, so improvements — or increases — are clearly visible.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Is this fully compliant with my supplier systems?<span class="faq-arrow">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. Affiliate Warehouse operates within existing wholesaler systems and terms. All purchases use the same backend access and traceability as your regular accounts. Purchases remain job-coded and processed through normal wholesaler channels.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What if it stops being useful for my business?<span class="faq-arrow">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Simply stop using it. There are no exit clauses, no fees for leaving, and no minimum periods. Your original supplier accounts are unaffected at all times.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How are better prices actually achieved?<span class="faq-arrow">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Better pricing may be achieved through aggregated purchasing volume across our independent preferred contractors nationally. By consistently buying together, the network can access pricing tiers typically reserved for larger operators — subject to supplier approval and terms.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THREE FORMS -->
+<section id="apply" class="forms-section">
+  <div class="container">
+    <p class="section-label">Get Started</p>
+    <h2 class="section-title">Ready to see your new pricing?</h2>
+    <p class="section-sub">Select your pathway below. All applications are reviewed before a call is scheduled.</p>
+
+    <div class="forms-tabs">
+      <button class="form-tab active" onclick="switchTab(this,'tab-contractor')">🔧 Preferred Contractor</button>
+      <button class="form-tab" onclick="switchTab(this,'tab-callback')">📞 Request Info / Call-Back</button>
+      <button class="form-tab" onclick="switchTab(this,'tab-wholesaler')">🏭 Wholesaler Enquiry</button>
+    </div>
+
+    <!-- FORM 1: Contractor -->
+    <div id="tab-contractor" class="form-panel active">
+      <div class="form-wrap">
+        <div class="form-info">
+          <h2>Apply to Become a Preferred Contractor</h2>
+          <p>Fill in your details below. We'll review your application and call you at your scheduled time to walk through the onboarding process and answer any questions.</p>
+          <div class="form-micro">
+            <span><span class="check-sm">✓</span>No discount, no charge — ever</span>
+            <span><span class="check-sm">✓</span>Compare pricing with your existing accounts anytime</span>
+            <span><span class="check-sm">✓</span>No contracts or lock-ins</span>
+            <span><span class="check-sm">✓</span>Access: TradeZone, Ideal Electrical, Voltex</span>
+          </div>
+        </div>
+        <div class="form-box">
+          <form onsubmit="handleSubmit(event,'msg1')">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Business Name *</label>
+                <input type="text" required placeholder="e.g. Smith Electrical Pty Ltd">
+              </div>
+              <div class="form-group">
+                <label>Contact Name *</label>
+                <input type="text" required placeholder="Your full name">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Mobile *</label>
+                <input type="tel" required placeholder="04xx xxx xxx">
+              </div>
+              <div class="form-group">
+                <label>Email *</label>
+                <input type="email" required placeholder="you@business.com.au">
+              </div>
+            </div>
+            <button type="button" class="calendly-btn">📅 Schedule a Call via Calendly</button>
+            <button type="submit" class="submit-btn">Submit Application →</button>
+            <div id="msg1" class="success-msg">
+              <strong>Thanks — your details have been received.</strong><br>
+              We'll review your application and call you at your scheduled time to walk through the Affiliate Warehouse onboarding process and answer any questions.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORM 2: Call-Back -->
+    <div id="tab-callback" class="form-panel">
+      <div class="form-wrap">
+        <div class="form-info">
+          <h2>Request More Information</h2>
+          <p>Not quite ready to apply? Book a call and we'll walk you through how Affiliate Warehouse works — no pressure, no obligation.</p>
+          <div class="form-micro">
+            <span><span class="check-sm">✓</span>No discount, no charge</span>
+            <span><span class="check-sm">✓</span>Compare pricing against your current suppliers</span>
+            <span><span class="check-sm">✓</span>Completely non-committal conversation</span>
+          </div>
+        </div>
+        <div class="form-box">
+          <form onsubmit="handleSubmit(event,'msg2')">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Your Name *</label>
+                <input type="text" required placeholder="Your full name">
+              </div>
+              <div class="form-group">
+                <label>Business Name *</label>
+                <input type="text" required placeholder="Trading name">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Phone *</label>
+                <input type="tel" required placeholder="04xx xxx xxx">
+              </div>
+              <div class="form-group">
+                <label>Email *</label>
+                <input type="email" required placeholder="you@business.com.au">
+              </div>
+            </div>
+            <button type="button" class="calendly-btn">📅 Schedule a Quick Chat via Calendly</button>
+            <button type="submit" class="submit-btn">Send My Details →</button>
+            <div id="msg2" class="success-msg">
+              <strong>Thanks for booking in.</strong><br>
+              We'll review your details and give you a call at your selected time to walk you through how Affiliate Warehouse works and answer any questions.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORM 3: Wholesaler -->
+    <div id="tab-wholesaler" class="form-panel" id="contact">
+      <div class="form-wrap">
+        <div class="form-info">
+          <h2>Wholesaler Expression of Interest</h2>
+          <p>Interested in understanding or exploring alignment with Affiliate Warehouse? Submit your details and we'll reach out at your preferred time to discuss the model and next steps.</p>
+          <div class="form-micro">
+            <span><span class="check-sm">✓</span>Voluntary, non-exclusive model</span>
+            <span><span class="check-sm">✓</span>Operates fully within your existing terms</span>
+            <span><span class="check-sm">✓</span>Improves volume — without disruption</span>
+          </div>
+        </div>
+        <div class="form-box">
+          <form onsubmit="handleSubmit(event,'msg3')">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Company Name *</label>
+                <input type="text" required placeholder="Your wholesale business">
+              </div>
+              <div class="form-group">
+                <label>Contact Name *</label>
+                <input type="text" required placeholder="Your full name">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Email *</label>
+                <input type="email" required placeholder="you@company.com.au">
+              </div>
+              <div class="form-group">
+                <label>Phone *</label>
+                <input type="tel" required placeholder="Business number">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Message (Optional)</label>
+              <textarea placeholder="Tell us a bit about your business or any questions you have…"></textarea>
+            </div>
+            <button type="button" class="calendly-btn">📅 Schedule a Discussion via Calendly</button>
+            <button type="submit" class="submit-btn">Submit Enquiry →</button>
+            <div id="msg3" class="success-msg">
+              <strong>Thanks — we've received your details.</strong><br>
+              We'll review the information provided and call you at your scheduled time to discuss the Affiliate Warehouse model and next steps.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<section class="disclaimer-section">
+  <div class="disclaimer-box">
+    <h4>Legal Disclaimer</h4>
+    <p>Pricing and discounts are set by wholesalers and are subject to change without notice. Affiliate Warehouse does not guarantee savings on all products. Larger or high-volume items typically see stronger results; savings vary by product, supplier, and prevailing market conditions. Fees apply only where verifiable savings occur. Participation is non-exclusive and voluntary. Affiliate Warehouse operates within existing wholesaler systems — no resale of goods occurs and no wholesaler terms are altered.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="logo"><span class="logo-dot"></span>Affiliate Warehouse</div>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="mailto:info@affiliatewarehouse.com.au">info@affiliatewarehouse.com.au</a>
+    </div>
+    <p class="footer-copy">© 2026 Affiliate Warehouse. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // FAQ toggle
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Form tabs
+  function switchTab(btn, tabId) {
+    document.querySelectorAll('.form-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.form-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(tabId).classList.add('active');
+  }
+
+  // Form submit
+  function handleSubmit(e, msgId) {
+    e.preventDefault();
+    const msg = document.getElementById(msgId);
+    msg.style.display = 'block';
+    e.target.querySelectorAll('input,textarea,button[type="submit"]').forEach(el => el.disabled = true);
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('revealed');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Smooth nav highlighting
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.id;
+    });
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.style.color = a.getAttribute('href') === '#'+current ? '#fff' : '';
+    });
+  });
+</script>
+</body>
+</html>
